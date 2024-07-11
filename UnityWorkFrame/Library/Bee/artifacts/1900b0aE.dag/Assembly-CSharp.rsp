@@ -360,8 +360,16 @@
 "Assets/02_Scripts/Managers/InputManager.cs"
 "Assets/02_Scripts/Managers/Managers.cs"
 "Assets/02_Scripts/Managers/ResourceManager.cs"
+"Assets/02_Scripts/Managers/UIManager.cs"
+"Assets/02_Scripts/UI/Popup/UI_Button.cs"
+"Assets/02_Scripts/UI/Popup/UI_Popup.cs"
+"Assets/02_Scripts/UI/Scene/UI_Scene.cs"
+"Assets/02_Scripts/UI/UI_Base.cs"
+"Assets/02_Scripts/UI/UI_EventHandler.cs"
+"Assets/02_Scripts/UI/UI_Extension.cs"
 "Assets/02_Scripts/Utils/Define.cs"
 "Assets/02_Scripts/Utils/PrefabTest.cs"
+"Assets/02_Scripts/Utils/Util.cs"
 -langversion:9.0
 
 /deterministic

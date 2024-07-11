@@ -16,9 +16,6 @@ public class InputManager
 
     public void OnUpdate()
     {
-        
-        
-
         if (Input.anyKey && KeyAction != null)
             KeyAction.Invoke();
         if(MouseAction != null)

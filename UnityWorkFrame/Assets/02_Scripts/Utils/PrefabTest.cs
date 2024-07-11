@@ -13,7 +13,7 @@ public class PrefabTest : MonoBehaviour
         //prefab = Resources.Load<GameObject>("prefabs/Cube");
         //cube = Instantiate(prefab);
 
-        cube = Managers.resource.Instantiate("Cube");
+        cube = Managers.Resource.Instantiate("Cube");
 
         Destroy(cube, 3f);
     }

@@ -11,15 +11,26 @@ public class PlayerController : MonoBehaviour
     bool _moveToDest = false;
     Vector3 _destPos;
 
+    UI_Button uiPopup;
     //float wait_run_ratio = 0;
 
     void Start()
     {
-        Managers.input.KeyAction -= OnKeyboard;
-        Managers.input.KeyAction += OnKeyboard;
+        //Managers.Input.KeyAction -= OnKeyboard;
+        //Managers.Input.KeyAction += OnKeyboard;
 
-        Managers.input.MouseAction -= OnMouseClicked;
-        Managers.input.MouseAction += OnMouseClicked;
+        Managers.Input.MouseAction -= OnMouseClicked;
+        Managers.Input.MouseAction += OnMouseClicked;
+
+        if (Input.GetKeyDown(KeyCode.Escape))
+        {
+            Managers.UI.ClosePopupUI(uiPopup);
+        }
+        for(int i = 0; i < 5; i++)
+        {
+            Managers.UI.ShowPopupUI<UI_Button>();
+        }
+        uiPopup = Managers.UI.ShowPopupUI<UI_Button>();
     }
     public enum PlayerState
     {
@@ -63,11 +74,12 @@ public class PlayerController : MonoBehaviour
                 {
                     float moveDist = Mathf.Clamp(_speed * Time.deltaTime, 0, dir.magnitude);
 
+                    
                     transform.position += dir.normalized * moveDist;
                     transform.rotation = Quaternion.Slerp(transform.rotation, Quaternion.LookRotation(dir), 20 * Time.deltaTime);
                 }
                 Animator anim = GetComponent<Animator>();
-                anim.SetFloat("speed", 1);
+                anim.SetFloat("speed", _speed);
             }
         }
     void UpdateIdle()
@@ -161,11 +173,12 @@ void OnKeyboard()
         Debug.DrawRay(Camera.main.transform.position, ray.direction * 100f, Color.red, 1f);
 
         RaycastHit hit;
+
         if(Physics.Raycast(ray, out hit, 100f, LayerMask.GetMask("Ground")))
         {
             _destPos = hit.point;//클릭된 지점을 목적지로 지정
             _state = PlayerState.Moving;
-            //_moveToDest = true; //클릭 방식으로 이동 가능 하게.
+            _moveToDest = true; //클릭 방식으로 이동 가능 하게.
         }
 
     }

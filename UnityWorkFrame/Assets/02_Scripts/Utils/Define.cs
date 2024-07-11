@@ -14,14 +14,15 @@ public class Define
         Press, Click,
     }
 
-
-    // Start is called before the first frame update
+    public enum UIEvent
+    {
+        Click, Drag,
+    }
     void Start()
     {
         
     }
 
-    // Update is called once per frame
     void Update()
     {
         
